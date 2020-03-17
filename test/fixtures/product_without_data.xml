@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ONIXMessage release="3.0">
+  <Header>
+    <Sender>
+      <SenderIdentifier><SenderIDType>06</SenderIDType><IDValue>3025599000108</IDValue></SenderIdentifier>
+      <SenderName>HUB NUMERIQUE</SenderName>
+    </Sender>
+    <Addressee><AddresseeIdentifier><AddresseeIDType>06</AddresseeIDType><IDValue>3025594275402</IDValue></AddresseeIdentifier></Addressee>
+    <SentDateTime>20160310T0500Z</SentDateTime>
+  </Header>
+  <Product>
+    <RecordReference>9782707154298</RecordReference>
+    <NotificationType>04</NotificationType>
+    <RecordSourceType>01</RecordSourceType>
+    <ProductIdentifier>
+      <ProductIDType>03</ProductIDType>
+      <IDValue>9782707154298</IDValue>
+    </ProductIdentifier>
+  </Product>
+</ONIXMessage>

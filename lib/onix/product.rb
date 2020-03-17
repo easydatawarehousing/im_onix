@@ -321,13 +321,13 @@ module ONIX
     # :category: High level
     # product title string
     def title
-      @descriptive_detail.title
+      @descriptive_detail ? @descriptive_detail.title : nil
     end
 
     # :category: High level
     # product subtitle string
     def subtitle
-      @descriptive_detail.subtitle
+      @descriptive_detail ? @descriptive_detail.subtitle : nil
     end
 
     # :category: High level
@@ -391,12 +391,16 @@ module ONIX
     # :category: High level
     # product edition number
     def edition_number
-      @descriptive_detail.edition_number
+      @descriptive_detail ? @descriptive_detail.edition_number : nil
     end
 
     # product LanguageCode of text
     def language_of_text
-      @descriptive_detail.language_of_text || @default_language_of_text
+      if @descriptive_detail && @descriptive_detail.language_of_text
+        @descriptive_detail.language_of_text
+      else
+        @default_language_of_text
+      end
     end
 
     # :category: High level
@@ -418,16 +422,16 @@ module ONIX
     # :category: High level
     # publisher collection title
     def publisher_collection_title
-      @descriptive_detail.publisher_collection_title
+      @descriptive_detail ? @descriptive_detail.publisher_collection_title : nil
     end
 
     def subjects
-      @descriptive_detail.subjects
+      @descriptive_detail ? @descriptive_detail.subjects : nil
     end
 
     # BISAC categories Subject
     def bisac_categories
-      @descriptive_detail.bisac_categories
+      @descriptive_detail ? @descriptive_detail.bisac_categories : []
     end
 
     # :category: High level
@@ -438,7 +442,7 @@ module ONIX
 
     # CLIL categories Subject
     def clil_categories
-      @descriptive_detail.clil_categories
+      @descriptive_detail ? @descriptive_detail.clil_categories : []
     end
 
     # :category: High level
@@ -450,19 +454,19 @@ module ONIX
     # :category: High level
     # keywords string array
     def keywords
-      @descriptive_detail.keywords
+      @descriptive_detail ? @descriptive_detail.keywords : nil
     end
 
     # :category: High level
     # Protection type string (None, Watermarking, Drm, AdobeDrm)
     def protection_type
-      @descriptive_detail.protection_type
+      @descriptive_detail ? @descriptive_detail.protection_type : nil
     end
 
     # :category: High level
     # List of protections type string (None, Watermarking, DRM, AdobeDRM)
     def protections
-      @descriptive_detail.protections
+      @descriptive_detail ? @descriptive_detail.protections : nil
     end
 
     # :category: High level
@@ -478,25 +482,25 @@ module ONIX
     # :category: High level
     # is product digital ?
     def digital?
-      @descriptive_detail.digital?
+      @descriptive_detail ? @descriptive_detail.digital? : nil
     end
 
     # :category: High level
     # is product audio ?
     def audio?
-      @descriptive_detail.audio?
+      @descriptive_detail ? @descriptive_detail.audio? : nil
     end
 
     # :category: High level
     # is product digital ?
     def streaming?
-      @descriptive_detail.streaming?
+      @descriptive_detail ? @descriptive_detail.streaming? : nil
     end
 
     # :category: High level
     # is product a bundle of multiple parts ?
     def bundle?
-      @descriptive_detail.bundle?
+      @descriptive_detail ? @descriptive_detail.bundle? : nil
     end
 
     def sold_separately?
@@ -506,57 +510,57 @@ module ONIX
     # :category: High level
     # bundle ProductPart array
     def parts
-      @descriptive_detail.parts
+      @descriptive_detail ? @descriptive_detail.parts : []
     end
 
     # :category: High level
     # digital file filesize in bytes
     def filesize
-      @descriptive_detail.filesize
+      @descriptive_detail ? @descriptive_detail.filesize : nil
     end
 
     # :category: High level
     # audio formats array
     def audio_formats
-      @descriptive_detail.audio_formats
+      @descriptive_detail ? @descriptive_detail.audio_formats : []
     end
 
     # :category: High level
     # audio format string ()
     def audio_format
-      @descriptive_detail.audio_format
+      @descriptive_detail ? @descriptive_detail.audio_format : nil
     end
 
     # :category: High level
     # digital file format string (Epub,Pdf,Mobipocket)
     def file_format
-      @descriptive_detail.file_format
+      @descriptive_detail ? @descriptive_detail.file_format : nil
     end
 
     def form_details
-      @descriptive_detail.form_details
+      @descriptive_detail ? @descriptive_detail.form_details : nil
     end
 
     def reflowable?
-      @descriptive_detail.reflowable?
+      @descriptive_detail ? @descriptive_detail.reflowable? : nil
     end
 
     # :category: High level
     # digital file mimetype (Epub,Pdf,Mobipocket)
     def file_mimetype
-      @descriptive_detail.file_mimetype
+      @descriptive_detail ? @descriptive_detail.file_mimetype : nil
     end
 
     # :category: High level
     # digital file description string
     def file_description
-      @descriptive_detail.file_description
+      @descriptive_detail ? @descriptive_detail.file_description : nil
     end
 
     # :category: High level
     # raw file description string without HTML
     def raw_file_description
-      if @descriptive_detail.file_description
+      if @descriptive_detail && @descriptive_detail.file_description
         Helper.strip_html(@descriptive_detail.file_description).gsub(/\s+/," ").strip
       else
         nil
@@ -566,7 +570,7 @@ module ONIX
     # :category: High level
     # page count
     def pages
-      @descriptive_detail.pages
+      @descriptive_detail ? @descriptive_detail.pages : nil
     end
 
     # :category: High level
@@ -819,7 +823,7 @@ module ONIX
     # :category: High level
     # Contributor array
     def contributors
-      @descriptive_detail.contributors
+      @descriptive_detail ? @descriptive_detail.contributors : nil
     end
 
     # :category: High level
