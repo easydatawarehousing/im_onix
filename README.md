@@ -30,6 +30,9 @@ onix3_to_onix3.rb onix.xml
 Launch this command:
 
 ```
+ruby -Ilib:test test/test_collection.rb
+ruby -Ilib:test test/test_title.rb
+ruby -Ilib:test test/test_no_data.rb
 ruby -Ilib:test test/test_im_onix.rb
 ```
 
